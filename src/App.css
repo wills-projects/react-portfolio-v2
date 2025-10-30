@@ -40,3 +40,50 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Loader styles */
+.loader {
+  position: fixed;
+  inset: 0;
+  background: #0e0e0e;
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  z-index: 9999;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 600ms ease, visibility 0s linear 0s;
+}
+
+.loader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 600ms ease, visibility 0s linear 600ms;
+}
+
+.loader__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.loader__text {
+  font-size: 14px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.loader__mark {
+  width: 72px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, #ffffff 50%, rgba(255,255,255,0) 100%);
+  animation: loader-scan 1100ms ease-in-out infinite;
+}
+
+@keyframes loader-scan {
+  0% { transform: scaleX(0.2); opacity: 0.4; }
+  50% { transform: scaleX(1); opacity: 1; }
+  100% { transform: scaleX(0.2); opacity: 0.4; }
+}
